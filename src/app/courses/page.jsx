@@ -36,7 +36,7 @@ const CoursePage = async () => {
               </p>
               <div className="card-actions mt-4 w-full">
                 <Link
-                  href={`/src/app/${course.id}`}
+                  href={`/courses/${course.id}`}
                   className="w-full flex justify-center"
                 >
                   <button className="btn w-full  bg-[#697565] text-[#1e201e] border-none hover:bg-[#ecdfcc] hover:text-[#1e201e] font-semibold">

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Jhankar",
+    "title": "Senior Web Developer",
+    "expertise": "React, Next.js, JavaScript",
+    "courses": 12,
+    "students": 15000,
+    "rating": 4.8,
+    "image": "/JhankarVaiya.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Rakib",
+    "title": "UI/UX Designer",
+    "expertise": "Figma, Design Systems, UX Research",
+    "courses": 8,
+    "students": 9800,
+    "rating": 4.7,
+    "image": "/RakbiVaiya.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Faisal",
+    "title": "Full Stack Engineer",
+    "expertise": "Node.js, MongoDB, Express",
+    "courses": 10,
+    "students": 12000,
+    "rating": 4.9,
+    "image": "/FaisalVaiya.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Uthsho",
+    "title": "Data Science Instructor",
+    "expertise": "Python, Machine Learning, AI",
+    "courses": 6,
+    "students": 8500,
+    "rating": 4.8,
+    "image": "/UthshoVaiya.jpg"
+  }
+]
