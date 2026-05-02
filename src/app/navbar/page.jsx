@@ -71,7 +71,7 @@ const NavPage = () => {
                 className={`text-sm font-medium transition-all relative group ${
                   isActive(link.href)
                     ? "text-red-600"
-                    : "text-white-700 hover:text-red-400"
+                    : "text-white hover:text-red-400"
                 }`}
               >
                 {link.label}

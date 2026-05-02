@@ -7,7 +7,7 @@
     "rating": 4.8,
     "level": "Beginner",
     "description": "Learn full-stack web development from scratch.",
-    "image": "https://i.postimg.cc/example-course1.png",
+    "image": "/image/photo-1.jpg",
     "category": "Development"
   },
   {
@@ -18,7 +18,7 @@
     "rating": 4.7,
     "level": "Intermediate",
     "description": "Master React.js with real-world projects.",
-    "image": "https://i.postimg.cc/example-course2.png",
+    "image": "/image/photo-2.jpg",
     "category": "Development"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 4.6,
     "level": "Intermediate",
     "description": "Build scalable backend APIs using Node.js and Express.",
-    "image": "https://i.postimg.cc/example-course3.png",
+    "image": "/image/photo-3.jpg",
     "category": "Development"
   },
   {
@@ -40,7 +40,7 @@
     "rating": 4.5,
     "level": "Beginner",
     "description": "Learn the basics of user interface and user experience design.",
-    "image": "https://i.postimg.cc/example-course4.png",
+    "image": "/image/photo-4.jpg",
     "category": "Design"
   },
   {
@@ -51,7 +51,7 @@
     "rating": 4.9,
     "level": "Advanced",
     "description": "Deep dive into advanced JavaScript topics and patterns.",
-    "image": "https://i.postimg.cc/example-course5.png",
+    "image": "/image/photo-5.jpg",
     "category": "Development"
   },
   {
@@ -62,7 +62,7 @@
     "rating": 4.7,
     "level": "Beginner",
     "description": "Start coding with Python from zero knowledge.",
-    "image": "https://i.postimg.cc/example-course6.png",
+    "image": "/image/photo-6.jpg",
     "category": "Programming"
   },
   {
@@ -73,7 +73,7 @@
     "rating": 4.8,
     "level": "Advanced",
     "description": "Learn DSA concepts for coding interviews.",
-    "image": "https://i.postimg.cc/example-course7.png",
+    "image": "/image/photo-7.jpg",
     "category": "Computer Science"
   },
   {
@@ -84,7 +84,7 @@
     "rating": 4.6,
     "level": "Intermediate",
     "description": "Build fast and SEO-friendly apps using Next.js.",
-    "image": "https://i.postimg.cc/example-course8.png",
+    "image": "/image/photo-8.jpg",
     "category": "Development"
   },
   {
@@ -95,7 +95,7 @@
     "rating": 4.5,
     "level": "Intermediate",
     "description": "Learn NoSQL databases and schema design with MongoDB.",
-    "image": "https://i.postimg.cc/example-course9.png",
+    "image": "/image/photo-9.jpg",
     "category": "Database"
   },
   {
@@ -106,7 +106,7 @@
     "rating": 4.7,
     "level": "Beginner",
     "description": "Version control and collaboration using Git and GitHub.",
-    "image": "https://i.postimg.cc/example-course10.png",
+    "image": "/image/photo-10.jpg",
     "category": "Tools"
   }
 ]
