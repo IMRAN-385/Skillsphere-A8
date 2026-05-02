@@ -49,7 +49,7 @@ const NavPage = () => {
   ];
 
   return (
-    <nav className="bg-[#1E201E]">
+    <nav className="bg-[#1E201E] relative z-50">
       <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-center h-16 sm:h-20">
 
@@ -110,7 +110,7 @@ const NavPage = () => {
                 </button>
 
             
-                <div className="absolute right-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2">
+                <div className="absolute right-0 mt-0 w-56 bg-white rounded-xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 z-50">
                   <div className="px-4 py-3 border-b border-gray-100">
                     <p className="font-semibold text-gray-900 text-sm">{user.name}</p>
                     <p className="text-xs text-gray-500">{user.email}</p>

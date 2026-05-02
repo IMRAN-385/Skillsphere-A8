@@ -38,7 +38,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className=" bg-[#697565] border-t dark:border-gray-800 mt-20">
+    <footer className=" bg-[#505f4ccf] border-t dark:border-gray-800 ">
       <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-3 text-center md:text-left">
 
         
@@ -77,7 +77,7 @@ const Footer = () => {
           <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">
             Legal
           </h3>
-          <div className="flex flex-col gap-2 text-sm">
+          <div className="flex flex-col gap-2 text-sm text-gray-400">
             <Link href="/terms" className="hover:text-red-500">
               Terms & Conditions
             </Link>
@@ -89,7 +89,7 @@ const Footer = () => {
       </div>
 
     
-      <div className="text-center text-xs text-gray-500 pb-6">
+      <div className="text-center text-xs text-black pb-6">
         © {currentYear} SkillSphere. All rights reserved.
       </div>
     </footer>
