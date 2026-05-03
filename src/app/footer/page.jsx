@@ -38,12 +38,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className=" bg-[#505f4ccf] border-t dark:border-gray-800 ">
+    <footer className=" bg-[#505f4ccf] border-t  dark:border-gray-800 ">
       <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-3 text-center md:text-left">
 
         
         <div>
-          <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">
+          <h3 className="font-semibold mb-3  text-gray-900 dark:text-white">
             Contact
           </h3>
           <p className="text-sm text-gray-900 dark:text-gray-400">✉ {contactInfo.email}</p>

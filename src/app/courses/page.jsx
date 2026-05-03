@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CoursePage = async () => {
-  const res = await fetch("https://skillsphere-a8.vercel.app/data.json", {
-    cache: "force-cache",
-  });
-  const data = await res.json();
+// const CoursePage = async () => {
+//   const res = await fetch("http://localhost:3000/data.json", );
+//   const data = await res.json();
 
   return (
     <div className="bg-[#3C3D37]">
