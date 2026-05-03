@@ -1,12 +1,11 @@
+'use client';
 
+export const dynamic = 'force-dynamic';
 
-const teachersPage = async () => {
-  const data2 =  await fetch ('')
+export default function Page() {
   return (
-    <div>
-      
+    <div className="min-h-screen flex items-center justify-center">
+      <h1>Teacher Section</h1>
     </div>
   );
-};
-
-export default teachersPage;
+}
