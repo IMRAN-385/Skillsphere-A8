@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const CoursePage = async () => {
 //   const res = await fetch("http://localhost:3000/data.json", );
-//   const data = await res.json();
+  const data = await res.json();
 
   return (
     <div className="bg-[#3C3D37]">

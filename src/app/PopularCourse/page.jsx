@@ -5,7 +5,7 @@ const PopularCourse = async () => {
   // const res = await fetch("http://localhost:3000/data.json", {
   //   cache: "force-cache",
   // });
-  // const data = await res.json();
+  const data = await res.json();
 
   const popularCourses = data
     .sort((a, b) => b.rating - a.rating)

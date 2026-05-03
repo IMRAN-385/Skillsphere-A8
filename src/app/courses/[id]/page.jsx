@@ -6,7 +6,7 @@ const DetailPage = async ({ params }) => {
   // const res = await fetch("http://localhost:3000/data.json", {
   //   cache: "force-cache",
   // });
-  // const data = await res.json();
+  const data = await res.json();
   
   const course = data.find((c) => c.id === parseInt(id));
 
