@@ -2,14 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const PopularCourse = async () => {
-  const res = await fetch("http://localhost:3000/data.json", {
-    cache: "force-cache",
-  });
-  const data = await res.json();
+  // const res = await fetch("http://localhost:3000/data.json", {
+  //   cache: "force-cache",
+  // });
+  // const data = await res.json();
 
-  const popularCourses = data
-    .sort((a, b) => b.rating - a.rating)
-    .slice(0, 3);
+  // const popularCourses = data
+  //   .sort((a, b) => b.rating - a.rating)
+  //   .slice(0, 3);
 
   return (
     <div className="bg-[#3C3D37] py-10 px-5">

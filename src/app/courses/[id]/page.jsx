@@ -1,18 +1,18 @@
 import Image from "next/image";
 
 const DetailPage = async ({ params }) => {
-  const { id } = await params;
+  // const { id } = await params;
   
-  const res = await fetch("http://localhost:3000/data.json", {
-    cache: "force-cache",
-  });
-  const data = await res.json();
+  // const res = await fetch("http://localhost:3000/data.json", {
+  //   cache: "force-cache",
+  // });
+  // const data = await res.json();
   
-  const course = data.find((c) => c.id === parseInt(id));
+  // const course = data.find((c) => c.id === parseInt(id));
 
-  if (!course) {
-    return <div>No Course</div>;
-  }
+  // if (!course) {
+  //   return <div>No Course</div>;
+  // }
 
   return (
     <div className="bg-[#3C3D37] min-h-screen p-5">
