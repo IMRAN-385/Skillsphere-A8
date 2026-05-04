@@ -70,10 +70,9 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
 
 ---
 
 ## 👨‍💻 Author
 **SkillSphere Team**  
-Developed for Assignment Category-A8-Orange.
