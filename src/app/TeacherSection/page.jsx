@@ -37,7 +37,7 @@ const TeacherPage = async () => {
           {data.map((teacher) => (
             <div
               key={teacher.id}
-              className="group bg-olive-400 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100">
+              className="group bg-olive-600 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-400">
               <div className="relative h-72 overflow-hidden">
                 <Image
                   src={teacher.image}
@@ -69,7 +69,7 @@ const TeacherPage = async () => {
               <div className="p-7">
                 
                 <div className="mb-6">
-                  <span className="inline-block px-5 py-2 bg-blue-50 text-blue-700 text-sm font-medium rounded-full">
+                  <span className="inline-block px-5 py-2 bg-gray-300 text-blue-700 text-sm font-medium rounded-full">
                     {teacher.expertise}
                   </span>
                 </div>
@@ -82,19 +82,19 @@ const TeacherPage = async () => {
                     </div>
                     <div>
                       <p className="text-3xl font-bold text-gray-900">{teacher.courses}</p>
-                      <p className="text-xs uppercase tracking-widest text-gray-500">Courses</p>
+                      <p className="text-xs font-bold uppercase tracking-widest text-gray-900">Courses</p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-emerald-200 rounded-2xl flex items-center justify-center flex-shrink-0">
                       <Users className="w-6 h-6 text-emerald-600" />
                     </div>
                     <div>
                       <p className="text-3xl font-bold text-gray-900">
                         {(teacher.students / 1000).toFixed(1)}k
                       </p>
-                      <p className="text-xs uppercase tracking-widest text-gray-500">Students</p>
+                      <p className="text-xs font-bold uppercase tracking-widest text-gray-900">Students</p>
                     </div>
                   </div>
                 </div>

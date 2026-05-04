@@ -1,71 +1,86 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Star, User } from "lucide-react";
 
 const PopularCourse = async () => {
   const res = await fetch("https://skillsphere-a8-55lz.vercel.app/data.json", {
     cache: "force-cache",
   });
+
   const data = await res.json();
 
+  // Sort by rating and take top 3
   const popularCourses = data
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 3);
 
   return (
-    <div className="bg-[#3C3D37] py-10 px-5">
-      <h2 className="text-center text-2xl font-bold text-[#ecdfcc] mb-8">
-        
- Popular Courses
-      </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {popularCourses.map((course) => (
-          <div
-            key={course.id}
-            className="bg-[#1e201e] border border-[#3c3d37] shadow-lg rounded-2xl overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-200"
-          >
-           
-            <figure className="px-4 pt-4">
-              <Image
-                src={course.image}
-                alt={course.title}
-                width={400}
-                height={180}
-                className="rounded-xl w-full h-44 object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-                priority
-              />
-            </figure>
+    <div className="bg-[#343727dc] py-16 px-5">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center text-4xl font-bold text-[#ecdfcc] mb-12">
+          Popular Courses
+        </h2>
 
-            <div className="flex flex-col flex-1 p-4 items-center text-center gap-2">
-              
-            
-              <h3 className="text-[#ecdfcc] text-base font-semibold leading-snug">
-                {course.title}
-              </h3>
-
-          
-              <p className="text-[#697565] text-sm">
-                👨‍🏫 {course.instructor}
-              </p>
-
-           
-              <div className="flex items-center justify-center gap-1 text-yellow-400 text-sm font-semibold">
-                ⭐ {course.rating}
-                <span className="text-[#697565] font-normal">/ 5</span>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {popularCourses.map((course) => (
+            <div
+              key={course.id}
+              className="bg-[#1e201e] border border-[#3c3d37] rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300 shadow-xl group"
+            >
+              {/* Image */}
+              <div className="relative">
+                <Image
+                  src={course.image}
+                  alt={course.title}
+                  width={400}
+                  height={220}
+                  className="w-full h-56 object-cover rounded-t-3xl"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute top-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
+                  {course.level}
+                </div>
               </div>
 
-          
-              <div className="mt-auto w-full pt-3">
-                <Link href={`/courses/${course.id}`}>
-                  <button className="btn w-full bg-[#697565] text-[#1e201e] border-none hover:bg-[#ecdfcc] hover:text-[#1e201e] font-semibold">
-                    View Details
-                  </button>
-                </Link>
-              </div>
+              {/* Content */}
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-[#ecdfcc] text-xl font-semibold leading-tight line-clamp-2 min-h-[52px]">
+                  {course.title}
+                </h3>
 
+                <div className="flex text-2xl items-center gap-2 mt-4 text-[#bec7bb]">
+                  <User size={18} />
+                  <span>{course.instructor}</span>
+                </div>
+
+                {/* Rating */}
+                <div className="flex items-center gap-1 mt-3">
+                  <div className="flex text-yellow-400">
+                    <Star size={20} className="fill-current" />
+                  </div>
+                  <span className="text-[#ecdfcc] font-semibold text-lg">
+                    {course.rating}
+                  </span>
+                  <span className="text-[#697565]">/ 5</span>
+                </div>
+
+                {/* Duration */}
+                <p className="text-[#697565] text-sm mt-2">
+                  ⏱ {course.duration}
+                </p>
+
+                {/* View Details Button */}
+                <div className="mt-auto pt-6">
+                  <Link href={`/courses/${course.id}`} className="block">
+                    <button className="w-full bg-[#697565] hover:bg-[#ecdfcc] hover:text-[#1e201e] text-[#1e201e] font-semibold py-3.5 rounded-2xl transition-all duration-200">
+                      View Details
+                    </button>
+                  </Link>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

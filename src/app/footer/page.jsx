@@ -1,5 +1,6 @@
 'use client';
 
+import { Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -42,17 +43,17 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-3 text-center md:text-left">
 
         
-        <div>
+        <div className="mx-auto">
           <h3 className="font-semibold mb-3  text-gray-900 dark:text-white">
             Contact
           </h3>
-          <p className="text-sm text-gray-900 dark:text-gray-400">✉ {contactInfo.email}</p>
-          <p className="text-sm text-gray-900 dark:text-gray-400">📞 {contactInfo.phone}</p>
-          <p className="text-sm text-gray-900 dark:text-gray-400">📍 {contactInfo.address}</p>
+          <p className="text-sm my-2 flex gap-2 text-gray-900 dark:text-gray-400"><Mail /> {contactInfo.email}</p>
+          <p className="text-sm my-2 flex gap-2 text-gray-900 dark:text-gray-400"><Phone /> {contactInfo.phone}</p>
+          <p className="text-sm my-2 flex gap-2 text-gray-900 dark:text-gray-400"><MapPin /> {contactInfo.address}</p>
         </div>
 
        
-        <div>
+        <div className="mx-auto">
          <div>
   <h3 className="font-semibold mb-3 text-gray-900 dark:text-white ">
     Follow Us
@@ -73,7 +74,7 @@ const Footer = () => {
         </div>
 
         
-        <div>
+        <div className=" mx-auto">
           <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">
             Legal
           </h3>

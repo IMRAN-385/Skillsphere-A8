@@ -1,18 +1,112 @@
-import Image from "next/image";
+'use client';
 
-const BannerPage = () => {
+import React, { useState, useRef, useEffect } from 'react';
+import 'animate.css';
+import styles from '../AnimatedBanner.module.css';
+
+const AnimatedBanner = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const touchCoordinates = useRef({ start: 0, end: 0 });
+  const intervalRef = useRef(null);
+
+  const slides = [
+    {
+      id: 1,
+      title: "Master New Skills",
+      highlight: "With SkillSphere",
+      description: "Learn from industry experts and build in-demand skills through high-quality video courses and hands-on projects.",
+     
+      bgImage: "/Banner.png",
+    },
+    {
+      id: 2,
+      title: "Learn Anytime,",
+      highlight: "Anywhere",
+      description: "Access 1000+ courses in Web Development, UI/UX Design, Digital Marketing, Data Science, AI and more.",
+   
+      bgImage: "/Banner.png",
+    },
+    {
+      id: 3,
+      title: "Transform Your",
+      highlight: "Career Today",
+      description: "Join thousands of students who have upgraded their skills and landed their dream jobs with SkillSphere.",
+     
+      bgImage: "/Banner.png",
+    },
+  ];
+
+  const totalSlides = slides.length;
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    }, 5000);
+
+    return () => clearInterval(intervalRef.current);
+  }, [totalSlides]);
+
+  const handlePrevSlide = () => setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  const handleNextSlide = () => setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  const goToSlide = (index) => setCurrentIndex(index);
+
+  const handleTouchStart = (e) => touchCoordinates.current.start = e.changedTouches[0].screenX;
+  const handleTouchEnd = (e) => {
+    touchCoordinates.current.end = e.changedTouches[0].screenX;
+    const diff = touchCoordinates.current.start - touchCoordinates.current.end;
+    if (Math.abs(diff) > 50) diff > 0 ? handleNextSlide() : handlePrevSlide();
+  };
+
   return (
-    <div className="relative z-2 h-[680px] w-full overflow-hidden">
-      <Image
-        src="/banner.png"
-        alt="banner"
-        fill
-        className="object-cover relative"
-        priority
+    <div className={styles.container}>
+      {/* Stable Background */}
+      <div 
+        className={styles.background}
+        style={{ backgroundImage: `url(${slides[currentIndex].bgImage})` }}
       />
-      <h2 className="z-1 relative">hisdsrfshercbzdhdfhzjvcnnnnnnnnnnnnnnnnnnnnnnnnnnm</h2>
+      
+      {/* Dark Overlay */}
+      <div className={styles.overlay} />
+
+      {/* Centered Content */}
+      <div className={styles.contentWrapper}>
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`${styles.slideContent} ${index === currentIndex ? styles.active : ''}`}
+          >
+            <div className={styles.content}>
+              <h1 className={`${styles.title} animate__animated animate__fadeInDown`}>
+                {slide.title} <br />
+                <span className={styles.highlight}>{slide.highlight}</span>
+              </h1>
+
+              <p className={`${styles.description} animate__animated animate__fadeInUp animate__delay-1s`}>
+                {slide.description}
+              </p>
+
+        
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Arrows */}
+      <button className={`${styles.arrowButton} ${styles.arrowLeft}`} onClick={handlePrevSlide}>❮</button>
+      <button className={`${styles.arrowButton} ${styles.arrowRight}`} onClick={handleNextSlide}>❯</button>
+
+      {/* Dots */}
+      <div className={styles.navigation}>
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`${styles.navDot} ${index === currentIndex ? styles.active : ''}`}
+            onClick={() => goToSlide(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default BannerPage;
+export default AnimatedBanner;
