@@ -15,64 +15,69 @@ const PopularCourse = async () => {
     .slice(0, 3);
 
   return (
-    <div className="bg-[#343727dc] py-16 px-5">
+    <div className="bg-background py-24 px-5">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-4xl font-bold text-[#ecdfcc] mb-12">
-          Popular Courses
-        </h2>
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl">
+            <p className="text-primary font-black uppercase tracking-[0.3em] text-xs mb-3">Top Rated</p>
+            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
+              Popular <span className="text-primary">Courses</span>
+            </h2>
+          </div>
+          <Link href="/courses" className="text-muted hover:text-white font-bold text-sm transition-all border-b border-border pb-1">
+            View All Courses
+          </Link>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {popularCourses.map((course) => (
             <div
               key={course.id}
-              className="bg-[#1e201e] border border-[#3c3d37] rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300 shadow-xl group"
+              className="group bg-surface border border-border rounded-[2.5rem] overflow-hidden hover:border-primary/50 transition-all duration-500 shadow-2xl flex flex-col"
             >
-              <div className="relative">
+              <div className="relative h-64 overflow-hidden m-3 rounded-[2rem]">
                 <Image
                   src={course.image}
                   alt={course.title}
-                  width={400}
-                  height={220}
-                  className="w-full h-56 object-cover rounded-t-3xl"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
-                <div className="absolute top-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-60" />
+                <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-xl border border-white/10">
                   {course.level}
                 </div>
               </div>
 
-          
-              <div className="p-6 flex flex-col flex-1">
-                <h3 className="text-[#ecdfcc] text-xl font-semibold leading-tight line-clamp-2 min-h-[52px]">
+              <div className="p-8 pt-4 flex flex-col flex-1">
+                <div className="flex items-center gap-1 mb-4">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} size={14} className={`${i <= Math.floor(course.rating) ? 'text-primary fill-primary' : 'text-muted'}`} />
+                  ))}
+                  <span className="text-white font-black text-sm ml-2">{course.rating}</span>
+                </div>
+
+                <h3 className="text-white text-2xl font-bold leading-tight line-clamp-2 min-h-[64px] group-hover:text-primary transition-colors">
                   {course.title}
                 </h3>
 
-                <div className="flex text-2xl items-center gap-2 mt-4 text-[#bec7bb]">
-                  <User size={18} />
-                  <span>{course.instructor}</span>
-                </div>
-
-               
-                <div className="flex items-center gap-1 mt-3">
-                  <div className="flex text-yellow-400">
-                    <Star size={20} className="fill-current" />
+                <div className="flex items-center gap-3 mt-6 pb-6 border-b border-border">
+                  <div className="w-10 h-10 rounded-full bg-surface-hover border border-border flex items-center justify-center">
+                    <User size={18} className="text-primary" />
                   </div>
-                  <span className="text-[#ecdfcc] font-semibold text-lg">
-                    {course.rating}
-                  </span>
-                  <span className="text-[#697565]">/ 5</span>
+                  <div>
+                    <p className="text-muted text-[10px] font-bold uppercase tracking-wider">Instructor</p>
+                    <p className="text-white font-bold text-sm">{course.instructor}</p>
+                  </div>
                 </div>
 
-             
-                <p className="text-[#697565] text-sm mt-2">
-                  ⏱ {course.duration}
-                </p>
-
-              
-                <div className="mt-auto pt-6">
-                  <Link href={`/courses/${course.id}`} className="block">
-                    <button className="w-full bg-[#697565] hover:bg-[#ecdfcc] hover:text-[#1e201e] text-[#1e201e] font-semibold py-3.5 rounded-2xl transition-all duration-200">
-                      View Details
+                <div className="flex items-center justify-between mt-6">
+                  <div className="flex items-center gap-2 text-muted">
+                    <span className="text-sm font-bold">⏱ {course.duration}</span>
+                  </div>
+                  <Link href={`/courses/${course.id}`}>
+                    <button className="bg-surface-hover hover:bg-primary hover:text-white text-white font-black text-xs uppercase tracking-widest px-6 py-4 rounded-2xl transition-all duration-300 border border-border">
+                      Explore
                     </button>
                   </Link>
                 </div>

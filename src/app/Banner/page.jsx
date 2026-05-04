@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import 'animate.css';
 import styles from '../AnimatedBanner.module.css';
 
@@ -15,7 +16,6 @@ const AnimatedBanner = () => {
       title: "Master New Skills",
       highlight: "With SkillSphere",
       description: "Learn from industry experts and build in-demand skills through high-quality video courses and hands-on projects.",
-     
       bgImage: "/Banner.png",
     },
     {
@@ -23,7 +23,6 @@ const AnimatedBanner = () => {
       title: "Learn Anytime,",
       highlight: "Anywhere",
       description: "Access 1000+ courses in Web Development, UI/UX Design, Digital Marketing, Data Science, AI and more.",
-   
       bgImage: "/Banner.png",
     },
     {
@@ -31,7 +30,6 @@ const AnimatedBanner = () => {
       title: "Transform Your",
       highlight: "Career Today",
       description: "Join thousands of students who have upgraded their skills and landed their dream jobs with SkillSphere.",
-     
       bgImage: "/Banner.png",
     },
   ];
@@ -59,16 +57,29 @@ const AnimatedBanner = () => {
 
   return (
     <div className={styles.container}>
-  
-      <div 
-        className={styles.background}
-        style={{ backgroundImage: `url(${slides[currentIndex].bgImage})` }}
-      />
+      {/* Optimized Background Images */}
+      {slides.map((slide, index) => (
+        <div
+          key={`bg-${slide.id}`}
+          className={`${styles.background} transition-opacity duration-1000 ${
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <Image
+            src={slide.bgImage}
+            alt={`Banner background ${slide.id}`}
+            fill
+            priority={index === 0}
+            loading={index === 0 ? undefined : "lazy"}
+            className="object-cover"
+            sizes="100vw"
+            quality={75}
+          />
+        </div>
+      ))}
       
-     
       <div className={styles.overlay} />
 
-  
       <div className={styles.contentWrapper}>
         {slides.map((slide, index) => (
           <div
@@ -84,8 +95,6 @@ const AnimatedBanner = () => {
               <p className={`${styles.description} animate__animated animate__fadeInUp animate__delay-1s`}>
                 {slide.description}
               </p>
-
-        
             </div>
           </div>
         ))}
@@ -94,7 +103,6 @@ const AnimatedBanner = () => {
       <button className={`${styles.arrowButton} ${styles.arrowLeft}`} onClick={handlePrevSlide}>❮</button>
       <button className={`${styles.arrowButton} ${styles.arrowRight}`} onClick={handleNextSlide}>❯</button>
 
-   
       <div className={styles.navigation}>
         {slides.map((_, index) => (
           <div
