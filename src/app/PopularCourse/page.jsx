@@ -4,7 +4,7 @@ import { Star, User } from "lucide-react";
 
 const PopularCourse = async () => {
   const res = await fetch("https://skillsphere-a8-55lz.vercel.app/data.json", {
-    cache: "force-cache",
+    cache: "no-store",
   });
 
   const data = await res.json();

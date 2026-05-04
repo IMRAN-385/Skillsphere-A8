@@ -4,7 +4,7 @@ import { TrendingUp, Sparkles, Star, User, Clock, ChevronRight } from "lucide-re
 
 async function getCourses() {
   const res = await fetch("https://skillsphere-a8-55lz.vercel.app/data.json", {
-    next: { revalidate: 3600 },
+    cache: "no-store", 
   });
   if (!res.ok) throw new Error("Failed to fetch");
   return res.json();
