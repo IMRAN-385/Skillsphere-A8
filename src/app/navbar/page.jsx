@@ -87,13 +87,13 @@ const NavPage = () => {
             {!user ? (
               <div className="hidden sm:flex items-center gap-2">
                 <Link
-                  href="/LoginPage"
+                  href="/login"
                   className="px-4 py-2 text-white text-sm font-semibold rounded-lg border border-[#697565]/40 hover:border-red-500 transition"
                 >
                   Login
                 </Link>
                 <Link
-                  href="/Register"
+                  href="/register"
                   className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition"
                 >
                   Register
@@ -173,10 +173,10 @@ const NavPage = () => {
 
             {!user ? (
               <div className="pt-2 space-y-2 px-2">
-                <Link href="/LoginPage" className="block px-4 py-3 text-center text-white border border-[#697565]/40 rounded-lg hover:border-red-500 transition">
+                <Link href="/login" className="block px-4 py-3 text-center text-white border border-[#697565]/40 rounded-lg hover:border-red-500 transition">
                   Login
                 </Link>
-                <Link href="/Register" className="block px-4 py-3 text-center bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">
+                <Link href="/register" className="block px-4 py-3 text-center bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">
                   Register
                 </Link>
               </div>

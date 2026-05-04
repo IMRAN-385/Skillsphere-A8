@@ -15,19 +15,39 @@ function LoginForm() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    if (!email || !password) { toast.error("Please fill in all fields."); return; }
-    setLoading(true);
-    const { error } = await signIn.email({ email, password });
-    setLoading(false);
-    if (error) {
-      toast.error(error.message || "Login failed.");
-    } else {
-      toast.success("Logged in!");
-      router.push(redirectTo);
-    }
-  };
+  e.preventDefault();
 
+  if (!email || !password) {
+    toast.error("Please fill in all fields.");
+    return;
+  }
+
+  // ✅ Demo login check
+  if (email === "demo@skillsphere.com" && password === "123456") {
+    toast.success("Demo login successful!");
+    
+    // fake user set (optional: localStorage)
+    localStorage.setItem("user", JSON.stringify({
+      email: "demo@skillsphere.com",
+      name: "Demo User"
+    }));
+
+    router.push(redirectTo);
+    return;
+  }
+
+  // 🔵 Real login (optional)
+  setLoading(true);
+  const { error } = await signIn.email({ email, password });
+  setLoading(false);
+
+  if (error) {
+    toast.error(error.message || "Login failed.");
+  } else {
+    toast.success("Logged in!");
+    router.push(redirectTo);
+  }
+};
   const handleGoogle = async () => {
     await signIn.social({ provider: "google", callbackURL: redirectTo });
   };
@@ -77,7 +97,7 @@ function LoginForm() {
         </div>
         <p className="text-center text-[#697565] text-sm mt-6">
           Don't have an account?{" "}
-          <Link href="/Register" className="text-red-400 hover:text-red-300 font-medium">Register here</Link>
+          <Link href="/register" className="text-red-400 hover:text-red-300 font-medium">Register here</Link>
         </p>
       </div>
     </div>
