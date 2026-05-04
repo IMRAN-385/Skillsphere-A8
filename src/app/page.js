@@ -1,33 +1,37 @@
-'use client';
-
-import { useAuth } from "@/Context/AuthContext";
+import { Suspense } from "react";
 import PopularCourse from "./PopularCourse/page";
 import Banner from "./Banner/page";
 import LearningPage from "./LearningSection/page";
 import TeacherPage from "./TeacherSection/page";
+import UserWelcome from "@/components/UserWelcome";
+
+const CourseSkeleton = () => (
+  <div className="bg-[#1E201E] py-16 px-5">
+    <div className="max-w-7xl mx-auto text-center">
+      <div className="h-10 w-64 bg-[#3C3D37] rounded-lg mx-auto mb-12 animate-pulse" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="bg-[#1e201e] border border-[#3c3d37] rounded-3xl h-96 animate-pulse" />
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 export default function Home() {
-  const { user } = useAuth();
-
   return (
     <div className="flex flex-col">
-      {user && (
-        <div className="bg-[#1E201E] text-white p-4 flex items-center gap-4">
-          <img
-            src={user.image || `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'U')}&background=dc2626&color=fff`}
-            alt={user.name || 'User'}
-            className="w-12 h-12 rounded-full object-cover border-2 border-red-500"
-          />
-          <div>
-            <h2 className="text-lg font-semibold">Welcome back, {user.name}!</h2>
-            <p className="text-sm text-[#697565]">Enjoy your learning journey.</p>
-          </div>
-        </div>
-      )}
+      <UserWelcome />
       <Banner />
-      <PopularCourse />
-      <TeacherPage />
-      <LearningPage />
+      <Suspense fallback={<CourseSkeleton />}>
+        <PopularCourse />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-[#1E201E] animate-pulse" />}>
+        <TeacherPage />
+      </Suspense>
+      <Suspense fallback={<div className="h-96 bg-[#1E201E] animate-pulse" />}>
+        <LearningPage />
+      </Suspense>
     </div>
   );
 }

@@ -39,59 +39,83 @@ const Footer = () => {
   };
 
   return (
-    <footer className=" bg-[#505f4ccf] border-t  dark:border-gray-800 ">
-      <div className="max-w-6xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-3 text-center md:text-left">
-
+    <footer className="bg-background border-t border-border pt-24 pb-12">
+      <div className="max-w-7xl mx-auto px-6 grid gap-16 md:grid-cols-4">
         
-        <div className="mx-auto">
-          <h3 className="font-semibold mb-3  text-gray-900 dark:text-white">
-            Contact
+        {/* Brand Section */}
+        <div className="col-span-1 md:col-span-1">
+          <div className="font-black text-3xl tracking-tighter text-white mb-6">
+            Skill<span className="text-primary">Sphere</span>
+          </div>
+          <p className="text-muted text-sm leading-relaxed mb-8">
+            Empowering learners worldwide with industry-leading courses and expert mentorship. Build your future with SkillSphere.
+          </p>
+          <div className="flex gap-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border border-border text-muted hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+              >
+                <SocialIcon name={social.name} />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact Section */}
+        <div>
+          <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">
+            Get in Touch
           </h3>
-          <p className="text-sm my-2 flex gap-2 text-gray-900 dark:text-gray-400"><Mail /> {contactInfo.email}</p>
-          <p className="text-sm my-2 flex gap-2 text-gray-900 dark:text-gray-400"><Phone /> {contactInfo.phone}</p>
-          <p className="text-sm my-2 flex gap-2 text-gray-900 dark:text-gray-400"><MapPin /> {contactInfo.address}</p>
+          <div className="space-y-4">
+            <p className="text-sm flex items-center gap-3 text-muted">
+              <Mail size={16} className="text-primary" /> {contactInfo.email}
+            </p>
+            <p className="text-sm flex items-center gap-3 text-muted">
+              <Phone size={16} className="text-primary" /> {contactInfo.phone}
+            </p>
+            <p className="text-sm flex items-center gap-3 text-muted">
+              <MapPin size={16} className="text-primary" /> {contactInfo.address}
+            </p>
+          </div>
         </div>
 
-       
-        <div className="mx-auto">
-         <div>
-  <h3 className="font-semibold mb-3 text-gray-900 dark:text-white ">
-    Follow Us
-  </h3>
-  <div className="flex justify-center md:justify-start gap-4">
-    {socialLinks.map((social) => (
-      <a
-        key={social.name}
-        href={social.url}
-        target="_blank"
-        className="w-10 h-10 flex items-center justify-center rounded-full border dark:border-gray-700 hover:bg-red-500 hover:text-white transition"
-      >
-        <SocialIcon name={social.name} />
-      </a>
-    ))}
-  </div>
-</div>
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">
+            Quick Links
+          </h3>
+          <ul className="space-y-4 text-sm font-bold">
+            <li><Link href="/" className="text-muted hover:text-primary transition-colors">Home</Link></li>
+            <li><Link href="/courses" className="text-muted hover:text-primary transition-colors">All Courses</Link></li>
+            <li><Link href="/profile" className="text-muted hover:text-primary transition-colors">My Dashboard</Link></li>
+            <li><Link href="/TrendingCourse" className="text-muted hover:text-primary transition-colors">New Releases</Link></li>
+          </ul>
         </div>
 
-        
-        <div className=" mx-auto">
-          <h3 className="font-semibold mb-3 text-gray-900 dark:text-white">
+        {/* Legal Section */}
+        <div>
+          <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">
             Legal
           </h3>
-          <div className="flex flex-col gap-2 text-sm text-gray-400">
-            <Link href="/terms" className="hover:text-red-500">
-              Terms & Conditions
-            </Link>
-            <Link href="/privacy" className="hover:text-red-500">
-              Privacy Policy
-            </Link>
-          </div>
+          <ul className="space-y-4 text-sm font-bold">
+            <li><Link href="/terms" className="text-muted hover:text-primary transition-colors">Terms & Conditions</Link></li>
+            <li><Link href="/privacy" className="text-muted hover:text-primary transition-colors">Privacy Policy</Link></li>
+            <li><Link href="/about" className="text-muted hover:text-primary transition-colors">About Us</Link></li>
+          </ul>
         </div>
       </div>
 
-    
-      <div className="text-center text-xs text-black pb-6">
-        © {currentYear} SkillSphere. All rights reserved.
+      <div className="max-w-7xl mx-auto px-6 mt-24 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-muted text-[10px] font-bold uppercase tracking-widest">
+          © {currentYear} SkillSphere. All rights reserved. Designed for Excellence.
+        </p>
+        <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-muted">
+           <span>Status: Operational</span>
+           <span>Version: 2.0.4</span>
+        </div>
       </div>
     </footer>
   );

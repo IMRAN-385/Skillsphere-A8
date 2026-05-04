@@ -23,6 +23,11 @@ export function AuthProvider({ children }) {
 
   const user = session?.user || demoUser;
 
+  const loginDemoUser = (userData) => {
+    localStorage.setItem('user', JSON.stringify(userData));
+    setDemoUser(userData);
+  };
+
   const logout = async () => {
     await signOut();
     localStorage.removeItem('user');
@@ -34,6 +39,7 @@ export function AuthProvider({ children }) {
       user,
       loading: isPending,
       logout,
+      loginDemoUser,
     }}>
       {children}
     </AuthContext.Provider>
