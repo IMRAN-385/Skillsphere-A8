@@ -9,7 +9,7 @@ const PopularCourse = async () => {
 
   const data = await res.json();
 
-  // Sort by rating and take top 3
+
   const popularCourses = data
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 3);
@@ -27,7 +27,6 @@ const PopularCourse = async () => {
               key={course.id}
               className="bg-[#1e201e] border border-[#3c3d37] rounded-3xl overflow-hidden hover:-translate-y-2 transition-all duration-300 shadow-xl group"
             >
-              {/* Image */}
               <div className="relative">
                 <Image
                   src={course.image}
@@ -42,7 +41,7 @@ const PopularCourse = async () => {
                 </div>
               </div>
 
-              {/* Content */}
+          
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-[#ecdfcc] text-xl font-semibold leading-tight line-clamp-2 min-h-[52px]">
                   {course.title}
@@ -53,7 +52,7 @@ const PopularCourse = async () => {
                   <span>{course.instructor}</span>
                 </div>
 
-                {/* Rating */}
+               
                 <div className="flex items-center gap-1 mt-3">
                   <div className="flex text-yellow-400">
                     <Star size={20} className="fill-current" />
@@ -64,12 +63,12 @@ const PopularCourse = async () => {
                   <span className="text-[#697565]">/ 5</span>
                 </div>
 
-                {/* Duration */}
+             
                 <p className="text-[#697565] text-sm mt-2">
                   ⏱ {course.duration}
                 </p>
 
-                {/* View Details Button */}
+              
                 <div className="mt-auto pt-6">
                   <Link href={`/courses/${course.id}`} className="block">
                     <button className="w-full bg-[#697565] hover:bg-[#ecdfcc] hover:text-[#1e201e] text-[#1e201e] font-semibold py-3.5 rounded-2xl transition-all duration-200">

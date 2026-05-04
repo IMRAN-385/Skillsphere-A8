@@ -59,16 +59,16 @@ const AnimatedBanner = () => {
 
   return (
     <div className={styles.container}>
-      {/* Stable Background */}
+  
       <div 
         className={styles.background}
         style={{ backgroundImage: `url(${slides[currentIndex].bgImage})` }}
       />
       
-      {/* Dark Overlay */}
+     
       <div className={styles.overlay} />
 
-      {/* Centered Content */}
+  
       <div className={styles.contentWrapper}>
         {slides.map((slide, index) => (
           <div
@@ -91,11 +91,10 @@ const AnimatedBanner = () => {
         ))}
       </div>
 
-      {/* Arrows */}
       <button className={`${styles.arrowButton} ${styles.arrowLeft}`} onClick={handlePrevSlide}>❮</button>
       <button className={`${styles.arrowButton} ${styles.arrowRight}`} onClick={handleNextSlide}>❯</button>
 
-      {/* Dots */}
+   
       <div className={styles.navigation}>
         {slides.map((_, index) => (
           <div

@@ -1,17 +1,22 @@
 'use client';
 
 import { createContext, useContext } from 'react';
-import { useSession } from '@/lib/auth-client';
+import { useSession, signOut } from '@/lib/auth-client';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const { data: session, isPending } = useSession();
 
+  const logout = async () => {
+    await signOut();
+  };
+
   return (
     <AuthContext.Provider value={{
       user: session?.user || null,
       loading: isPending,
+      logout,
     }}>
       {children}
     </AuthContext.Provider>

@@ -13,30 +13,39 @@ export default function CourseDetailPage() {
   const [course, setCourse] = useState(null);
   const [fetching, setFetching] = useState(true);
 
-  // Auth guard
+
   useEffect(() => {
     if (!loading && !user) {
-     router.replace(`/LoginPage?redirect=/courses/${id}`);
+      router.replace(`/LoginPage?redirect=/courses/${id}`);
     }
-  }, [user, loading, id]);
+  }, [user, loading, id, router]);
 
-  // Fetch course
+  
   useEffect(() => {
-    if (!user) return;
-    fetch("https://skillsphere-a8-55lz.vercel.app/data.json", { cache: "no-store" })
-      .then(res => res.json())
-      .then(data => {
-        setCourse(data.find(c => c.id === parseInt(id)));
+    if (loading || !user) return;
+
+    fetch("https://skillsphere-a8-55lz.vercel.app/data.json", {
+      next: { revalidate: 3600 },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Fetch failed");
+        return res.json();
+      })
+      .then((data) => {
+        const found = data.find((c) => c.id === parseInt(id));
+        setCourse(found || null);
         setFetching(false);
       })
       .catch(() => setFetching(false));
-  }, [user, id]);
+  }, [user, loading, id]);
 
-  // Loading state
   if (loading || fetching) {
     return (
       <div className="min-h-screen bg-[#3C3D37] flex items-center justify-center">
-        <p className="text-white text-xl animate-pulse">Loading...</p>
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-red-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-[#697565] text-sm">Loading course...</p>
+        </div>
       </div>
     );
   }
@@ -45,8 +54,14 @@ export default function CourseDetailPage() {
 
   if (!course) {
     return (
-      <div className="min-h-screen bg-[#3C3D37] flex items-center justify-center text-white text-3xl">
-        Course Not Found
+      <div className="min-h-screen bg-[#3C3D37] flex items-center justify-center flex-col gap-4">
+        <p className="text-white text-3xl font-bold">Course Not Found</p>
+        <button
+          onClick={() => router.push('/courses')}
+          className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl transition"
+        >
+          ← Back to Courses
+        </button>
       </div>
     );
   }
@@ -67,19 +82,19 @@ export default function CourseDetailPage() {
     <div className="bg-[#3C3D37] min-h-screen pb-16">
       <div className="max-w-6xl mx-auto px-6 pt-8">
 
-        {/* Hero Image */}
+       
         <div className="relative rounded-3xl overflow-hidden shadow-2xl mb-10">
           <Image
             src={course.image}
             alt={course.title}
             width={1200}
             height={600}
-            className="w-full h-[520px] object-cover"
+            className="w-full h-[400px] md:h-[520px] object-cover"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
           <div className="absolute bottom-8 left-8 right-8">
-            <div className="flex gap-3 mb-4">
+            <div className="flex gap-3 mb-4 flex-wrap">
               <span className="px-5 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
                 {course.category}
               </span>
@@ -87,7 +102,7 @@ export default function CourseDetailPage() {
                 {course.level}
               </span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+            <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight">
               {course.title}
             </h1>
           </div>
@@ -95,10 +110,10 @@ export default function CourseDetailPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-          {/* Main Content */}
+         
           <div className="lg:col-span-2 space-y-12">
             <div>
-              <div className="flex items-center gap-6 text-[#a3a39f] mb-8">
+              <div className="flex flex-wrap items-center gap-6 text-[#a3a39f] mb-8">
                 <div className="flex items-center gap-2">
                   <User size={22} /><span>{course.instructor}</span>
                 </div>
@@ -114,7 +129,7 @@ export default function CourseDetailPage() {
               <p className="text-[#a3a39f] leading-relaxed text-lg">{course.description}</p>
             </div>
 
-            {/* Curriculum */}
+         
             <div>
               <h2 className="text-3xl font-bold text-[#ecdfcc] mb-6 flex items-center gap-3">
                 <PlayCircle size={32} className="text-blue-500" />
@@ -122,20 +137,22 @@ export default function CourseDetailPage() {
               </h2>
               <div className="bg-[#1e201e] rounded-2xl p-6">
                 {curriculum.map((item, index) => (
-                  <div key={index}
-                    className="flex items-center justify-between py-5 border-b border-gray-700 last:border-none hover:bg-[#252723] px-4 rounded-xl transition">
+                  <div
+                    key={index}
+                    className="flex items-center justify-between py-4 border-b border-gray-700 last:border-none hover:bg-[#252723] px-4 rounded-xl transition"
+                  >
                     <div className="flex items-center gap-4">
-                      <CheckCircle className="text-emerald-500" size={24} />
+                      <CheckCircle className="text-emerald-500 flex-shrink-0" size={22} />
                       <span className="text-[#d1d5db] font-medium">{item.title}</span>
                     </div>
-                    <span className="text-[#697565] font-medium">{item.duration}</span>
+                    <span className="text-[#697565] font-medium text-sm flex-shrink-0 ml-4">{item.duration}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Sidebar */}
+          
           <div className="lg:col-span-1">
             <div className="bg-[#1e201e] rounded-3xl p-8 sticky top-8">
               <div className="text-center">
@@ -147,15 +164,15 @@ export default function CourseDetailPage() {
               </button>
               <div className="mt-8 space-y-5 text-[#a3a39f]">
                 <div className="flex items-center gap-3">
-                  <Award className="text-emerald-500" size={26} />
+                  <Award className="text-emerald-500 flex-shrink-0" size={24} />
                   <span>Certificate of Completion</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Clock className="text-emerald-500" size={26} />
+                  <Clock className="text-emerald-500 flex-shrink-0" size={24} />
                   <span>Full Lifetime Access</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <PlayCircle className="text-emerald-500" size={26} />
+                  <PlayCircle className="text-emerald-500 flex-shrink-0" size={24} />
                   <span>Access on Mobile & TV</span>
                 </div>
               </div>

@@ -7,7 +7,7 @@ const TrendingCoursesWrapper = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 800); // simulate loading
+    setTimeout(() => setLoading(false), 800);
   }, []);
 
   if (loading) {
