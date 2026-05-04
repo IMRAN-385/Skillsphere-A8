@@ -22,79 +22,74 @@ const TeacherPage = async () => {
   }
 
   return (
-    <div className="min-h-screen bg-olive-700 py-12 px-6">
-      <div className="max-w-9xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-3">
-            Our Expert Instructors
-          </h1>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
-            Learn from the best industry professionals
+    <div className="bg-background py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <p className="text-primary font-black uppercase tracking-[0.4em] text-xs mb-4">The Faculty</p>
+          <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter">
+            Expert <span className="text-primary">Instructors</span>
+          </h2>
+          <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
+            Our courses are led by industry giants and world-class professionals who are passionate about sharing their knowledge.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
           {data.map((teacher) => (
             <div
               key={teacher.id}
-              className="group bg-olive-600 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-400">
-              <div className="relative h-72 overflow-hidden">
+              className="group bg-surface rounded-[2rem] overflow-hidden border border-border hover:border-primary/30 transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="relative h-80 overflow-hidden m-2 rounded-[1.5rem]">
                 <Image
                   src={teacher.image}
                   alt={teacher.name}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-60" />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-               
-                <div className="absolute top-5 right-5 bg-[#ECDFCC] px-4 py-1.5 rounded-2xl flex items-center gap-1 shadow-lg z-10">
-                  <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                  <span className="font-bold text-lg text-gray-800">{teacher.rating}</span>
+                <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-1 border border-white/10 z-10">
+                  <Star className="w-3 h-3 text-primary fill-primary" />
+                  <span className="font-black text-xs text-white">{teacher.rating}</span>
                 </div>
 
-        
-                <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <h3 className="text-white text-3xl font-bold tracking-tight">
+                <div className="absolute bottom-5 left-5 right-5 z-10">
+                  <h3 className="text-white text-2xl font-black tracking-tighter group-hover:text-primary transition-colors">
                     {teacher.name}
                   </h3>
-                  <p className="text-blue-200 text-lg font-medium">{teacher.title}</p>
+                  <p className="text-primary text-[10px] font-black uppercase tracking-widest mt-1">{teacher.title}</p>
                 </div>
               </div>
 
-            
-              <div className="p-7">
-                
-                <div className="mb-6">
-                  <span className="inline-block px-5 py-2 bg-gray-300 text-blue-700 text-sm font-medium rounded-full">
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2 mb-8">
+                  <span className="px-3 py-1 bg-surface-hover text-muted text-[10px] font-bold uppercase tracking-wider rounded-lg border border-border">
                     {teacher.expertise}
                   </span>
                 </div>
 
-              
-                <div className="grid grid-cols-2 gap-6 ">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <BookOpen className="w-6 h-6 text-purple-600" />
+                <div className="grid grid-cols-2 gap-4 border-t border-border pt-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-surface-hover rounded-xl flex items-center justify-center flex-shrink-0 border border-border">
+                      <BookOpen className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-gray-900">{teacher.courses}</p>
-                      <p className="text-xs font-bold uppercase tracking-widest text-gray-900">Courses</p>
+                      <p className="text-xl font-black text-white leading-none">{teacher.courses}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-tighter text-muted">Courses</p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-emerald-200 rounded-2xl flex items-center justify-center flex-shrink-0">
-                      <Users className="w-6 h-6 text-emerald-600" />
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-surface-hover rounded-xl flex items-center justify-center flex-shrink-0 border border-border">
+                      <Users className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-3xl font-bold text-gray-900">
+                      <p className="text-xl font-black text-white leading-none">
                         {(teacher.students / 1000).toFixed(1)}k
                       </p>
-                      <p className="text-xs font-bold uppercase tracking-widest text-gray-900">Students</p>
+                      <p className="text-[10px] font-bold uppercase tracking-tighter text-muted">Students</p>
                     </div>
                   </div>
                 </div>

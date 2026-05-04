@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎓 SkillSphere – Online Learning Platform
 
-## Getting Started
+SkillSphere is a modern, high-performance online learning platform built with Next.js 15. It allows users to explore expert-led courses, manage their profiles, and join a community of learners. This project was developed as part of a Web Development assignment (Category-A8-Orange).
 
-First, run the development server:
+## 🚀 Live Demo
+**Live URL:** [https://skillsphere-a8-55lz.vercel.app](https://skillsphere-a8-55lz.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Key Features
+- **Modern UI/UX**: A sleek, premium design with dark mode aesthetics and smooth animations.
+- **Dynamic Course Listings**: Explore a variety of courses fetched from a remote JSON API.
+- **Authentication System**: Secure login and registration powered by **BetterAuth**, including Google Social Login.
+- **Protected Routes**: Course details are only accessible to logged-in users.
+- **Course Search**: Real-time search functionality on the courses page to find specific topics quickly.
+- **User Dashboard**: A dedicated profile page where users can view their information.
+- **Profile Management**: Feature-rich profile update system to change name and profile image.
+- **Responsive Design**: Fully optimized for Desktop, Tablet, and Mobile devices.
+- **Animations**: Integrated with `Animate.css` for a dynamic and engaging user experience.
+
+---
+
+## 🛠️ Technology Stack
+- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
+- **Authentication**: [BetterAuth](https://www.better-auth.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Notifications**: [React Hot Toast](https://react-hot-toast.com/) & [React Toastify](https://fkhadra.github.io/react-toastify/)
+- **Animations**: [Animate.css](https://animate.style/) & [Swiper.js](https://swiperjs.com/)
+
+---
+
+## 📦 NPM Packages Used
+- `next`
+- `react`
+- `better-auth`
+- `@better-auth/mongo-adapter`
+- `mongodb`
+- `tailwindcss`
+- `daisyui`
+- `lucide-react`
+- `animate.css`
+- `react-hot-toast`
+- `react-toastify`
+- `swiper`
+
+---
+
+## ⚙️ Environment Variables
+To run this project locally, create a `.env` file in the root directory and add the following:
+
+```env
+BETTER_AUTH_SECRET=your_secret_here
+BETTER_AUTH_URL=http://localhost:3000
+MONGODB_URI=your_mongodb_connection_string
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🏃 Getting Started
+1. Clone the repository.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 👨‍💻 Author
+**SkillSphere Team**  
+Developed for Assignment Category-A8-Orange.
