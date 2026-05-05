@@ -3,7 +3,7 @@
 SkillSphere is a modern, high-performance online learning platform built with Next.js 15. It allows users to explore expert-led courses, manage their profiles, and join a community of learners. This project was developed as part of a Web Development assignment (Category-A8-Orange).
 
 ## 🚀 Live Demo
-**Live URL:** [https://skillsphere-a8-55lz.vercel.app](https://skillsphere-a8-55lz.vercel.app)
+**Live URL:** [https://skillspheree.vercel.app](https://skillspheree.vercel.app)
 
 ---
 

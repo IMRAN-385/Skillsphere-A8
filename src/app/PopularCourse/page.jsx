@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Star, User } from "lucide-react";
 
 const PopularCourse = async () => {
-  const res = await fetch("https://skillsphere-a8-55lz.vercel.app/data.json", {
+  const res = await fetch("https://skillspheree.vercel.app/data.json", {
     cache: "no-store",
   });
 

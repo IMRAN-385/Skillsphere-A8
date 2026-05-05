@@ -79,3 +79,4 @@ next-env.d.tsbug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.vercel

@@ -7,7 +7,7 @@ const TeacherPage = async () => {
   let data = [];
 
   try {
-    const res = await fetch("https://skillsphere-a8-55lz.vercel.app/data2.json", {
+    const res = await fetch("https://skillspheree.vercel.app/data2.json", {
       cache: "no-store",
       next: { revalidate: 0 }
     });

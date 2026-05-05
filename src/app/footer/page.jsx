@@ -42,7 +42,6 @@ const Footer = () => {
     <footer className="bg-background border-t border-border pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6 grid gap-16 md:grid-cols-4">
         
-        {/* Brand Section */}
         <div className="col-span-1 md:col-span-1">
           <div className="font-black text-3xl tracking-tighter text-white mb-6">
             Skill<span className="text-primary">Sphere</span>
@@ -64,7 +63,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Section */}
+     
         <div>
           <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">
             Get in Touch
@@ -82,7 +81,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links */}
+     
         <div>
           <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">
             Quick Links
@@ -95,7 +94,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Legal Section */}
+      
         <div>
           <h3 className="text-white font-black uppercase tracking-widest text-xs mb-8">
             Legal

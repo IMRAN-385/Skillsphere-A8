@@ -16,21 +16,21 @@ const AnimatedBanner = () => {
       title: "Master New Skills",
       highlight: "With SkillSphere",
       description: "Learn from industry experts and build in-demand skills through high-quality video courses and hands-on projects.",
-      bgImage: "/Banner.png",
+      bgImage: "/banner.png",
     },
     {
       id: 2,
       title: "Learn Anytime,",
       highlight: "Anywhere",
       description: "Access 1000+ courses in Web Development, UI/UX Design, Digital Marketing, Data Science, AI and more.",
-      bgImage: "/Banner.png",
+      bgImage: "/banner.png",
     },
     {
       id: 3,
       title: "Transform Your",
       highlight: "Career Today",
       description: "Join thousands of students who have upgraded their skills and landed their dream jobs with SkillSphere.",
-      bgImage: "/Banner.png",
+      bgImage: "/banner.png",
     },
   ];
 
@@ -57,7 +57,7 @@ const AnimatedBanner = () => {
 
   return (
     <div className={styles.container}>
-      {/* Optimized Background Images */}
+      
       {slides.map((slide, index) => (
         <div
           key={`bg-${slide.id}`}

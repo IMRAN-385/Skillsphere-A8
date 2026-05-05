@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-
+import TrendingCourses from "./TrendingCourses";
 
 const TrendingCoursesWrapper = () => {
   const [loading, setLoading] = useState(true);

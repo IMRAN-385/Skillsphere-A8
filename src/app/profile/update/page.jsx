@@ -68,12 +68,12 @@ export default function UpdateProfilePage() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6 py-24 relative overflow-hidden">
-      {/* Background Glow */}
+   
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="w-full max-w-2xl bg-surface border border-border rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-16 shadow-2xl relative z-10 mx-auto">
         
-        {/* Header */}
+       
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 rounded-full border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] mb-6">
             <Sparkles size={12} /> Profile Editor
@@ -84,7 +84,7 @@ export default function UpdateProfilePage() {
           <p className="text-muted text-sm font-medium">Refine your identity across the SkillSphere campus</p>
         </div>
 
-        {/* Avatar Preview */}
+        
         <div className="flex justify-center mb-12">
           <div className="relative group">
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />

@@ -29,7 +29,7 @@ export default function UserWelcome() {
             <div className="text-center sm:text-left">
               <p className="text-primary font-black uppercase tracking-[0.2em] text-[10px] mb-3">Student Dashboard</p>
               <h2 className="text-3xl sm:text-5xl font-black text-white mb-3 tracking-tighter">
-                Welcome back, <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">{user.name}</span>!
+                Welcome  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">{user.name}</span>!
               </h2>
               <p className="text-muted text-base sm:text-lg max-w-lg leading-relaxed">
                 Your learning progress is looking great today. Continue where you left off and achieve your goals.

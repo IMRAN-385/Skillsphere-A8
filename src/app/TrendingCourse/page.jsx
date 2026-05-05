@@ -3,7 +3,7 @@ import Link from "next/link";
 import { TrendingUp, Sparkles, Star, User, Clock, ChevronRight } from "lucide-react";
 
 async function getCourses() {
-  const res = await fetch("https://skillsphere-a8-55lz.vercel.app/data.json", {
+  const res = await fetch("https://skillspheree.vercel.app/data.json", {
     cache: "no-store", 
   });
   if (!res.ok) throw new Error("Failed to fetch");
@@ -99,7 +99,7 @@ export default async function TrendingCoursePage() {
     <div className="bg-background min-h-screen py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
-        {/* Trending Section */}
+       
         <div className="mb-24">
           <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
             <div className="max-w-xl">
@@ -123,10 +123,9 @@ export default async function TrendingCoursePage() {
           </div>
         </div>
 
-        {/* Separator */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-24" />
 
-        {/* New Releases Section */}
+    
         <div>
           <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
             <div className="max-w-xl">

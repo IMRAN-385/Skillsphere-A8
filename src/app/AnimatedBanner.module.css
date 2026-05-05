@@ -2,6 +2,8 @@
   position: relative;
   width: 100%;
   height: 100vh;
+  min-height: 480px;
+  max-height: 900px;
   overflow: hidden;
 }
 
@@ -29,7 +31,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 clamp(1rem, 5vw, 3rem);
 }
 
 .slideContent {
@@ -45,14 +47,16 @@
 }
 
 .content {
-  max-width: 900px;
+  max-width: min(900px, 100%);
+  padding: clamp(1rem, 4vw, 2.5rem);
 }
 
+
 .title {
-  font-size: 4.5rem;
+  font-size: clamp(2rem, 6vw, 4.5rem);
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 1.2rem;
+  margin-bottom: clamp(0.75rem, 2vw, 1.2rem);
   color: white;
 }
 
@@ -61,18 +65,100 @@
 }
 
 .description {
-  font-size: 1.35rem;
+  font-size: clamp(0.9rem, 2.2vw, 1.35rem);
   line-height: 1.6;
-  margin-bottom: 2.5rem;
+  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
   color: #f1f5f9;
-  max-width: 700px;
+  max-width: min(700px, 100%);
   margin-left: auto;
   margin-right: auto;
 }
 
 .buttons {
   display: flex;
-  gap: 1.2rem;
+  gap: clamp(0.6rem, 2vw, 1.2rem);
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.arrowButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  width: clamp(36px, 5vw, 52px);
+  height: clamp(36px, 5vw, 52px);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 2vw, 1.15rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.arrowButton:hover {
+  background: rgba(96, 165, 250, 0.3);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.arrowLeft  { left:  clamp(0.6rem, 2.5vw, 1.5rem); }
+.arrowRight { right: clamp(0.6rem, 2.5vw, 1.5rem); }
+
+.navigation {
+  position: absolute;
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.navDot {
+  height: 6px;
+  width: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: width 0.35s ease, background 0.35s ease;
+}
+
+.navDot.active {
+  width: 26px;
+  background: #60a5fa;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 85vh;
+    min-height: 420px;
+  }
+
+  .content {
+    padding: 1.25rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    height: 100svh;
+    min-height: 380px;
+    max-height: none;
+  }
+
+  .arrowButton {
+    display: none;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }

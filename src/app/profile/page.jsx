@@ -37,14 +37,14 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-background py-24 px-6 relative overflow-hidden">
-      {/* Background Decorative Elements */}
+ 
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
 
       <div className="max-w-4xl mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Sidebar: Profile Summary */}
+          
           <div className="lg:col-span-4 space-y-6">
             <div className="bg-surface border border-border p-8 rounded-[2.5rem] text-center shadow-2xl relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -89,7 +89,7 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Right Area: Detailed Information */}
+        
           <div className="lg:col-span-8 space-y-8">
             <div className="bg-surface border border-border p-10 rounded-[2.5rem] shadow-2xl">
               <div className="flex items-center justify-between mb-10">

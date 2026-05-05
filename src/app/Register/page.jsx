@@ -74,7 +74,7 @@ export default function RegisterPage() {
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-background flex items-center justify-center px-4 py-16 relative overflow-hidden">
-      {/* Decorative Background Elements */}
+  
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
