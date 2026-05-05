@@ -46,7 +46,11 @@ SkillSphere is a modern, high-performance online learning platform built with Ne
 - `swiper`
 
 ---
+## Screenshot
 
+<img width="1920" height="5633" alt="screencapture-skillspheree-vercel-app-2026-05-05-12_14_49" src="https://github.com/user-attachments/assets/9c38d7db-7752-4701-ba3b-f343cce5b74b" />
+
+---
 ## ⚙️ Environment Variables
 To run this project locally, create a `.env` file in the root directory and add the following:
 
